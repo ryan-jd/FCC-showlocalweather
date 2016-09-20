@@ -27,7 +27,7 @@ function getMyLocation() {
   var location = {};
   location.ipCoordinates = [];
   // fetch location JSON from IP address API
-  return fetch('http://ip-api.com/json')
+  return fetch('https://ip-api.com/json')
   .then(function connectToJSON(response) {
     if (response.status >= 200 && response.status < 400) {
       return response.json();
@@ -53,7 +53,7 @@ function getMyLocation() {
 // getTime() displays the local time for given coordinates and html Object (Either user or Ryan)
 function getTime(coordinates, htmlDate) {
   // fetch JSON from time API using given coordinates
-  var url = 'http://api.timezonedb.com/?key=HZSGGW75YGJL&format=json&lat=' + coordinates[0] + '&lng=' + coordinates[1];
+  var url = 'https://api.timezonedb.com/?key=HZSGGW75YGJL&format=json&lat=' + coordinates[0] + '&lng=' + coordinates[1];
   fetch(url)
   .then(function connectToJSON(response) {
     if (response.status >= 200 && response.status < 400) {
@@ -80,7 +80,7 @@ function getTime(coordinates, htmlDate) {
 function getWeather(coordinates) {
   var weatherHere = {};
   // fetch JSON from weather API using given coordinates
-  var url = 'http://api.openweathermap.org/data/2.5/weather?lat=' + coordinates[0] +
+  var url = 'https://api.openweathermap.org/data/2.5/weather?lat=' + coordinates[0] +
     '&lon=' + coordinates[1] + '&APPID=ad8c09618252495484dcf62dc4e4a801';
   return fetch(url)
   .then(function connectToJSON(response) {
@@ -117,7 +117,7 @@ function calculateRyanWeather() {
   return getWeather(ryanCoordinates).then(function (ryanWeather) {
     var ryanCelsiusTemperature = Math.round((ryanWeather.temp.temp - 273.15) * 100) / 100;
     document.getElementById('ryanWeatherTemp').innerHTML = ryanCelsiusTemperature;
-    document.getElementById('ryanWeatherImg').src = 'http://openweathermap.org/img/w/' + ryanWeather.icon + '.png';
+    document.getElementById('ryanWeatherImg').src = 'https://openweathermap.org/img/w/' + ryanWeather.icon + '.png';
     document.getElementById('ryanDescription').innerHTML = ryanWeather.head.description.charAt(0).toUpperCase() +
       ryanWeather.head.description.slice(1);
     return ryanCelsiusTemperature;
@@ -137,7 +137,7 @@ function calculateMyWeather() {
     return getWeather(myLocation.ipCoordinates).then(function (myWeather) {
       var myCelsiusTemp = Math.round((myWeather.temp.temp - 273.15) * 100) / 100;
       document.getElementById('myWeatherTemp').innerHTML = myCelsiusTemp;
-      document.getElementById('myWeatherImg').src = 'http://openweathermap.org/img/w/' + myWeather.icon + '.png';
+      document.getElementById('myWeatherImg').src = 'https://openweathermap.org/img/w/' + myWeather.icon + '.png';
       document.getElementById('myDescription').innerHTML = myWeather.head.description.charAt(0).toUpperCase() +
         myWeather.head.description.slice(1);
       return myCelsiusTemp;
