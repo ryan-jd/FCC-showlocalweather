@@ -27,7 +27,7 @@ function getMyLocation() {
   var location = {};
   location.ipCoordinates = [];
   // fetch location JSON from IP address API
-  return fetch('https://ip-api.com/json')
+  return fetch('https://crossorigin.me/http://ip-api.com/json')
   .then(function connectToJSON(response) {
     if (response.status >= 200 && response.status < 400) {
       return response.json();
