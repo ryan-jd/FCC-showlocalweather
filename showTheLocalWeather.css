@@ -1,0 +1,96 @@
+/* hide results and data elements until calculated */
+#resultSuccess, #resultNotSuccess, #resultError, .hide { display: none; }
+
+body { background-color: #e4b162 }
+
+.row { width: 90%; }
+
+.text-center {
+  margin: auto;
+  text-align: center;
+}
+
+h2 {
+  font-family: 'Open Sans Condensed';
+  font-size: 32px;
+}
+
+/* mobile CSS first */
+
+#findOutButton {
+  width: 90%;
+  padding: 15px 40px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background-color: #79CDCD;
+  font-size: 14px;
+}
+
+#result {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+}
+
+/* if user is warmer */
+#resultSuccess {
+  background-color: #61B329;
+  border-radius: 25px;
+  width: 90%;
+  padding: 1px 0px;
+}
+
+/* if user is not warmer */
+#resultNotSuccess {
+  background-color: #CD5C5C;
+  border-radius: 25px;
+  width: 90%;
+  padding: 1px 0px;
+}
+
+#weather {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+}
+
+/* put users data and ryans data in columns */
+div.inline {
+  display: inline-block;
+  padding: 0px 0px;
+  vertical-align: top;
+}
+
+/* delete the blank gaps between rows */
+br { content: ""; }
+
+.weatherTemps, #pTempUnits { font-size: 20px; }
+
+.weatherImgs {
+  width: auto;
+  height: auto;
+}
+
+#vsCol { padding-top: 4px; }
+
+footer {
+  padding-top: 20px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+}
+
+/* load larger screens second */
+
+@media (min-width: 600px) {
+
+  #findOutButton { width: auto; }
+  #result { font-size: 16px; }
+
+  #resultSuccess, #resultNotSuccess {
+    width: 400px;
+    padding: 5px 0px;
+  }
+
+  #weather { font-size: 14px; }
+  div.inline { padding: 0px 20px; }
+  footer { font-size: 14px; }
+}
